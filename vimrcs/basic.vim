@@ -79,14 +79,19 @@ source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
 " Turn on the WiLd menu
-set wildmenu
-
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
-else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+if has("wildmenu")
+    " Ignore static lib file, obj file, compiled files
+    set wildignore+=*.a,*.o,*.pyc
+    set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+    set wildignore+=.DS_Store,.git,.hg,.svn
+    set wildignore+=*~,*.swp,*.tmp
+    if has("win16") || has("win32")
+        set wildignore+=.git\*,.hg\*,.svn\*
+    else
+        set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+    endif
+    set wildmenu
+    set wildmode=longest,list,full
 endif
 
 "Always show current position
