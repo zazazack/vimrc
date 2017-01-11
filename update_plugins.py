@@ -16,6 +16,7 @@ from os import path
 
 #--- Globals ----------------------------------------------
 PLUGINS = """
+jedi-vim https://github.com/davidhalter/jedi-vim
 ack.vim https://github.com/mileszs/ack.vim
 ag.vim https://github.com/rking/ag.vim
 bufexplorer https://github.com/corntrace/bufexplorer
